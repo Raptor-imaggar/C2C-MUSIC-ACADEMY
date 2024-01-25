@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Academy</title>
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <div class="hero-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-lg-2 col-lg-10">
+                    <div class="entry-header">
+                        <h2 id="title"></h2>
+                        <div id="date"></div>
+                    </div>
+                    <div class="countdown">
+                        <div class="countdown-holder">
+                            <div id="days"></div>
+                            <label>Days</label>
+                        </div>
+                        <div class="countdown-holder">
+                            <div id="hours"></div>
+                            <label>Hours</label>
+                        </div>
+                        <div class="countdown-holder">
+                            <div id="minutes"></div>
+                            <label>Minutes</label>
+                        </div>
+                        <div class="countdown-holder">
+                            <div id="seconds"></div>
+                            <label>Seconds</label>
+                        </div>
+                    </div>
+                    <div class="entry-footer">
+                        <a id="buyTicketsLink" href="#" class="btn">Buy Tickets</a>
+                        <a id="seeLineupLink" href="#" class="btn current">See Lineup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulating the fetched data from MongoDB
+        const data = {
+            "_id": {
+                "$oid": "65b207927555f5798b3ca426"
+            },
+            "entryHeader": {
+                "h2": "Hello world!",
+                "entryMetaDate": "06.28.018"
+            },
+            "countdown": {
+                "date": "2018/06/06",
+                "days": 10,
+                "hours": 5,
+                "minutes": 23,
+                "seconds": 42
+            },
+            "entryFooter": {
+                "buyTicketsLink": "#",
+                "seeLineupLink": "#"
+            }
+        };
+
+        // Update HTML elements with data
+        document.getElementById('title').innerText = data.entryHeader.h2;
+        document.getElementById('date').innerText = data.entryHeader.entryMetaDate;
+        document.getElementById('days').innerText = data.countdown.days;
+        document.getElementById('hours').innerText = data.countdown.hours;
+        document.getElementById('minutes').innerText = data.countdown.minutes;
+        document.getElementById('seconds').innerText = data.countdown.seconds;
+        document.getElementById('buyTicketsLink').href = data.entryFooter.buyTicketsLink;
+        document.getElementById('seeLineupLink').href = data.entryFooter.seeLineupLink;
+    </script>
+</body>
+</html>
